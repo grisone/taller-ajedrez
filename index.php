@@ -83,7 +83,14 @@ function inicial() {
 					'fil' : $("table td.moviendo_a").attr("fil")
 				}
 			}
+
 			/// hola soy el hector
+			
+			/// hola ya no soy el hector soy el santi
+			
+			
+			
+
 			$.ajax({
 			  method: "POST",
 			  url: "tablero.php",
