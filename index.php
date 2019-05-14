@@ -84,6 +84,14 @@ function inicial() {
 				}
 			}
 			
+			
+			
+			
+			
+			/// hola ya no soy el hector soy el santi
+			
+			
+			
 			$.ajax({
 			  method: "POST",
 			  url: "tablero.php",
