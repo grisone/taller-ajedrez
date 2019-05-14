@@ -43,13 +43,19 @@ $_SESSION['JUGADOR']	= $miJuego->jugador;
         <h3 class="text-muted">Ajedrez</h3>
       </div>
 
-		<div class="jumbotron padre">
-			<div id="tabla" class="contenedor">
+		<div class="jumbotron">
+			<div class="row">
+				<div class="col-lg-2"></div>
+				<div class="col-lg-8">
+					<div id="tabla">
 <?php
 			
 echo Pintar::tablero($miJuego->tablero, $miJuego->jugador);
 
 ?>
+					</div>
+				</div>
+				<div class="col-lg-2"></div>
 			</div>
 		</div>
 
@@ -75,14 +81,11 @@ echo Pintar::tablero($miJuego->tablero, $miJuego->jugador);
           <h4>Subheading</h4>
           <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
         </div>
-      </div -->
-
-      <footer class="footer">
-        <p>&copy; 2019 Zootopia, Ltda.</p>
-      </footer>
-	  
-    </div>
-	<!-- /container -->
+      </div -->	  
+<?php
+	include('res/pieDePagina.php');
+?>
+	</div>
 </body>
 
 </html>

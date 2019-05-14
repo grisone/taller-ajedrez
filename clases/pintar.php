@@ -39,6 +39,8 @@ abstract class Pintar{
 		return $valorPieza;
 	}
 	
+	
+	
 	function tablero( $tablero, $jugador ){
 		$retorno = "<table>";
 		for($i=0; $i < 8; $i++){ //columnas 
@@ -54,6 +56,8 @@ abstract class Pintar{
 		return $retorno;
 	}
 
+	
+	
 	function puedeMover( $pieza, $jugador ){
 		
 		$retorno = "";
