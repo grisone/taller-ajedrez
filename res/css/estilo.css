@@ -1,0 +1,23 @@
+
+
+table>tbody>tr>td{
+	height: 40px !important;
+	width: 40px !important
+}
+
+.moviendo{
+	border: solid red 1px;
+}
+
+.moviendo_a{
+	border: solid blue 1px;
+}
+
+.none{
+	background-color:gray;
+}
+
+.par{
+	background-color:white;
+}
+

@@ -7,112 +7,82 @@ $miJuego = new Juego();
 
 session_start();
 
-$_SESSION['JUEGO'] = $miJuego->tablero;
-$_SESSION['JUGADOR'] = $miJuego->jugador;
+$_SESSION['JUEGO']		= $miJuego->tablero;
+$_SESSION['JUGADOR']	= $miJuego->jugador;
 
 ?>
 <!DOCTYPE html>
-<html> 
-  <head> 
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Ajedrez</title> 
 	
-    <meta name="viewport" content="width=device-width, initial-scale=1">	
+    <link href="res/css/bootstrap.css" rel="stylesheet">
+    <link href="res/css/jumbotron-narrow.css" rel="stylesheet">
 	
 	<script src="res/js/jquery-1.12.4.js"></script>
-<style>
-table>tbody>tr>td{
-	height: 40px !important;
-	width: 40px !important
-}
-
-.moviendo{
-	border: solid red 1px;
-}
-
-.moviendo_a{
-	border: solid blue 1px;
-}
-
-.none{
-	background-color:gray;
-}
-.par{
-	background-color:white;
-}
-</style>
-
+	<script src="res/js/juego.js"></script>
+	<link href="res/css/estilo.css" rel="stylesheet">
+	
 </head>
-<body> 
-<div id="tabla" style="border:solid red 1px;">
-<?php
+<body>
+    <div class="container">
+	
+      <div class="header clearfix">
+        <!-- nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">About</a></li>
+            <li role="presentation"><a href="#">Contact</a></li>
+          </ul>
+        </nav -->
+		
+        <h3 class="text-muted">Ajedrez</h3>
+      </div>
 
+		<div class="jumbotron padre">
+			<div id="tabla" class="contenedor">
+<?php
+			
 echo Pintar::tablero($miJuego->tablero, $miJuego->jugador);
 
-echo time();
 ?>
-</div>
-<script>
-"use strict"
+			</div>
+		</div>
 
-var jugando = false;
-var jugara = false;
+      <!-- div class="row marketing">
+        <div class="col-lg-6">
+          <h4>Subheading</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
 
-function inicial() {
-	
-	$("table td.puedeMover").click(function() {
-		if ( !jugando ){
-			$("table td").removeClass('moviendo');
-			$(this).addClass('moviendo');
-			jugara = true;
-		}
-	});
-	
-	$("table td:not(.puedeMover)").click(function() {
-		if ( !jugando && jugara ) {
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
 
-			$(this).addClass('moviendo_a');	
-			jugando = true
-		
-			var movimiento = {
-				'desde': {
-					'col': $("table td.moviendo").attr("col"),
-					'fil': $("table td.moviendo").attr("fil")
-				},
-				'hasta': {
-					'col' : $("table td.moviendo_a").attr("col"),
-					'fil' : $("table td.moviendo_a").attr("fil")
-				}
-			}
-			
-			$.ajax({
-			  method: "POST",
-			  url: "tablero.php",
-			  data: { numeroJuego: 123, jugada: movimiento }
-			}).done(function( datosServidor ) {				
-				$("#tabla").html( datosServidor );
-				
-				//alert("ANTES " +jugando);
-				
-				jugando = false;
-				jugara = false;
-				
-				//alert("DESUES " + jugando);
-				
-				inicial();
-				
-			});
-		}
-	});
-}
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
 
-$(function() {
-	inicial();
-});
-</script>
+        <div class="col-lg-6">
+          <h4>Subheading</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
 
-<?php 
-echo time();
-?>
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
 
-</body> 
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+      </div -->
+
+      <footer class="footer">
+        <p>&copy; 2019 Zootopia, Ltda.</p>
+      </footer>
+	  
+    </div>
+	<!-- /container -->
+</body>
+
 </html>

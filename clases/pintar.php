@@ -67,6 +67,5 @@ abstract class Pintar{
 		return $retorno;
 	}
 	
-	
 }
 ?>

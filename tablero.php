@@ -13,6 +13,7 @@ $miJuego->tablero = $_SESSION['JUEGO'];
 
 //error_log(print_r( $_POST, true) );
 
+
 /*
  Array\n(
 	[numeroJuego] => 123
@@ -42,15 +43,37 @@ $validado = $miJuego->validarMovimiento(
 							 $_POST['jugada']['desde']['col'],
                              $_POST['jugada']['hasta']['fil'], 
                              $_POST['jugada']['hasta']['col'] );
+							 
+							
 
 if( $validado ){
-	$miJuego->jugador = ( $miJuego->jugador == 1 ? 2 : 1 );
+	
+	if( $miJuego->validarJaque(
+					$_POST['jugada']['desde']['fil'],
+					$_POST['jugada']['desde']['col'],
+					$_POST['jugada']['hasta']['fil'], 
+					$_POST['jugada']['hasta']['col'] ) ){
+		
+		$miJuego->moverPieza(
+					$_POST['jugada']['desde']['fil'],
+					$_POST['jugada']['desde']['col'],
+					$_POST['jugada']['hasta']['fil'], 
+					$_POST['jugada']['hasta']['col'] );
+					
+		$miJuego->jugador = ( $miJuego->jugador == 1 ? 2 : 1 );
+		
+	}
+	
 }
-							 
+
+						 
 $_SESSION['JUEGO'] = $miJuego->tablero;
 $_SESSION['JUGADOR'] = $miJuego->jugador;
 
+
+
 echo Pintar::tablero($miJuego->tablero, $miJuego->jugador);
+
 
 
 ?>

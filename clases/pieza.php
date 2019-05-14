@@ -9,4 +9,5 @@ abstract class Pieza{
 	const REINA = 5;
 	const PEON = 6;
 }
+
 ?>
