@@ -84,6 +84,17 @@ function inicial() {
 				}
 			}
 			
+			
+			
+			
+			
+			/// hola soy el hector
+			
+			
+			
+			
+			
+			
 			$.ajax({
 			  method: "POST",
 			  url: "tablero.php",
