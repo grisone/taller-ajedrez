@@ -2,16 +2,13 @@
 
 include('pieza.php');
 
-abstract class Pintar{
-	
+abstract class Pintar{	
 	function pieza( $numeroPieza ){
-		$valorPieza = "";
-		
+		$valorPieza = "";		
 		if($numeroPieza == 0 ){
 			$valorPieza = "<span><br/></span>";
 		} else {
-			$paso = abs($numeroPieza);
-			
+			$paso = abs($numeroPieza);			
 			if( $paso == Pieza::TORRE ){
 				$valorPieza = "torre";
 			}elseif( $paso == Pieza::CABALLO ){
@@ -24,18 +21,14 @@ abstract class Pintar{
 				$valorPieza = "reina";
 			}elseif( $paso == Pieza::PEON ){
 				$valorPieza = "peon";
-			}
-			
+			}			
 			if( $numeroPieza > 0 ){
 					$valorPieza = $valorPieza. "_blanco";
 			}else{
 					$valorPieza = $valorPieza. "_negro";
-			}
-			
-			$valorPieza = "<img src='res/piezas/".$valorPieza.".png' >";
-			
-		}//fin if
-		
+			}			
+			$valorPieza = "<img src='res/piezas/".$valorPieza.".png' >";			
+		}		
 		return $valorPieza;
 	}
 	
@@ -55,7 +48,6 @@ abstract class Pintar{
 		
 		return $retorno;
 	}
-
 	
 	
 	function puedeMover( $pieza, $jugador ){
@@ -69,7 +61,30 @@ abstract class Pintar{
 		}
 		
 		return $retorno;
+	}	
+	
+	function puedeComer($fila, $col, $filaNueva, $colNueva){
+		$validado = false;
+		
+		if($colNueva == ($col - 1) && $filaNueva == $fila + 1  ){
+			$validado=true;
+		}elseif($colNueva == ($col + 1) && $filaNueva == $fila + 1  ){
+			$validado=true;			
+		}
+		/*
+		if(){
+			//validar que com cuando pieza se contraria 
+			
+		}
+	*/
+		
+		return $validado;
+		
 	}
 	
+	
+	
+	
 }
+
 ?>
