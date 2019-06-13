@@ -68,6 +68,7 @@ abstract class Pintar{
 		
 		if($colNueva == ($col - 1) && $filaNueva == $fila + 1  ){
 			$validado=true;
+			
 		}elseif($colNueva == ($col + 1) && $filaNueva == $fila + 1  ){
 			$validado=true;			
 		}
