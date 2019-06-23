@@ -24,6 +24,7 @@ $_SESSION['JUGADOR']	= $miJuego->jugador;
     <link href="res/css/jumbotron-narrow.css" rel="stylesheet">
 	
 	<script src="res/js/jquery-1.12.4.js"></script>
+	<script src="res/js/bootstrap.min.js"></script>
 	<script src="res/js/juego.js"></script>
 	<link href="res/css/estilo.css" rel="stylesheet">
 	
@@ -53,12 +54,24 @@ $_SESSION['JUGADOR']	= $miJuego->jugador;
 echo Pintar::tablero($miJuego->tablero, $miJuego->jugador);
 
 ?>
+
+
+
+	  
+	  
+	  
+	  
 					</div>
 				</div>
 				<div class="col-lg-2"></div>
 			</div>
 		</div>
 
+		
+	 <!-- LOG DE JUGADAS--->
+	 
+		
+		
       <!-- div class="row marketing">
         <div class="col-lg-6">
           <h4>Subheading</h4>
@@ -82,6 +95,8 @@ echo Pintar::tablero($miJuego->tablero, $miJuego->jugador);
           <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
         </div>
       </div -->	  
+	  <!-- Button trigger modal -->
+	  
 <?php
 	include('res/pieDePagina.php');
 ?>

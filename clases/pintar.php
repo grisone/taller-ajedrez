@@ -49,6 +49,45 @@ abstract class Pintar{
 		return $retorno;
 	}
 	
+	function eleccion( $tablero, $jugador , $fila, $columna, $piezaReal){
+
+$retorno = "<div class='modal' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel'>
+  <div class='modal-dialog' role='document'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h4 class='modal-title' id='myModalLabel'>Elije tu pieza ${fila},${columna} </h4>
+      </div>
+      <div class='modal-body'>
+		<input type='hidden' id='columnaAnterior' value='${columna}' >
+		<input type='hidden' id='filaAnterior' value='${fila}' >
+		
+		<button type='button' class='btn btn-default eleccion' value='".(Pieza::TORRE * ($piezaReal>0?1:-1))."'><img src='res/piezas/torre_".($piezaReal<0?'negro':'blanco').".png' ></button>
+		<button type='button' class='btn btn-default eleccion' value='".(Pieza::CABALLO * ($piezaReal>0?1:-1))."'><img src='res/piezas/caballo_".($piezaReal<0?'negro':'blanco').".png' ></button>
+		<button type='button' class='btn btn-default eleccion' value='".(Pieza::ALFIL * ($piezaReal>0?1:-1))."'><img src='res/piezas/alfil_".($piezaReal<0?'negro':'blanco').".png' ></button>
+		<button type='button' class='btn btn-default eleccion' value='".(Pieza::REINA * ($piezaReal>0?1:-1))."'><img src='res/piezas/reina_".($piezaReal<0?'negro':'blanco').".png' ></button>
+
+      </div>
+      <!-- div class='modal-footer'>
+        <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+        <button type='button' class='btn btn-primary'>Save changes</button>
+      </div -->
+    </div>
+  </div>
+</div>
+<script>
+$(function() {	
+	$('#myModal').modal({
+		show: true,
+		keyboard: false,
+		backdrop: 'static'
+	});
+});
+</script>
+";
+
+		return $retorno;
+	}
+	
 	
 	function puedeMover( $pieza, $jugador ){
 		

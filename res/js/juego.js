@@ -54,8 +54,40 @@ function inicial() {
 		}
 
 	});
+	
+	$("#myModal button.eleccion").click(function() {
+		
+		$('#myModal').modal('toggle');
+	
+		var movimiento = {
+			'desde': {
+				'col': $('#columnaAnterior').val(),
+				'fil': $('#filaAnterior').val()
+			},
+			'pieza': $(this).val()
+		}
+		
+		$.ajax({
+			method: "POST",
+			url: "cambio.php",
+			data: { numeroJuego: 123, jugada: movimiento }
+		}).done(function( datosServidor ) {
+			
+			$("#tabla").html( datosServidor );
+						
+			jugando = false;
+			jugara = false;
+			
+			inicial();
+		});
+
+	});
 }
 
 $(function() {
 	inicial();
+	
+	$('#myModal').modal('show');
 });
+
+ 

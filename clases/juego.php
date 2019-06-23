@@ -1,9 +1,7 @@
 <?php
 
-
-
 class Juego {
-	// VER LAS TRAMAS DE DEBUG
+	
 	private $DEBUG = TRUE;
 	
 	public $tablero;	
@@ -18,18 +16,20 @@ class Juego {
 	}
 	
 	private function juegoInicial(){
-		if(false){
-			return array (
-				array( 1, 2, 3, 4, 5, 3, 2, 1),			
+	return array (
+				array( 0, 0, 0, 4, 0, 0, 0, 0),
+				array( -6, 0, 0, 0, 0, 0, 0, -6),
+				
 				array( 0, 0, 0, 0, 0, 0, 0, 0),
 				array( 0, 0, 0, 0, 0, 0, 0, 0),
 				array( 0, 0, 0, 0, 0, 0, 0, 0),
 				array( 0, 0, 0, 0, 0, 0, 0, 0),
-				array( 0, 0, 0, 0, 0, 0, 0, 0),
-				array( 0, 0, 0, 0, 0, 0, 0, 0),
-				array(-1,-2,-3,-4,-5,-3,-2,-1)
-			);
-		}else{
+				
+				array(6,0, 0, 0, 0, 0, 0,6),
+				array(0, 0, 0,-4,0, 0, 0,0)
+			) 
+	
+	/*
 			return array (
 				array( 1, 2, 3, 4, 5, 3, 2, 1),
 				array( 6, 6, 6, 6, 6, 6, 6, 6),
@@ -41,8 +41,11 @@ class Juego {
 				
 				array(-6,-6,-6,-6,-6,-6,-6,-6),
 				array(-1,-2,-3,-4,-5,-3,-2,-1)
-			);
-		}
+			)
+			*/
+			
+			;
+		
 	}
 	
 	// cambiar posicion de pieza
@@ -202,6 +205,19 @@ class Juego {
 		return $validado;
 	}
 	
+	
+	function validarCoronacion($fila, $col, $filaNueva, $colNueva){
+		$validado = false;		
+		$pieza = $this->tablero[$filaNueva][$colNueva];
+		
+		if ( abs($pieza) == PIEZA::PEON ){
+			if( $filaNueva == 0  || $filaNueva == 7 ) {
+				$validado=true;	
+			}
+		}
+		
+		return $validado;
+	}
 	
 	function validarCapturaPeon($fila, $col, $filaNueva, $colNueva){
 		$validado=false;
