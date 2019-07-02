@@ -2,7 +2,8 @@
 
 include('pieza.php');
 
-abstract class Pintar{	
+abstract class Pintar{
+	
 	function pieza( $numeroPieza ){
 		$valorPieza = "";		
 		if($numeroPieza == 0 ){
@@ -35,15 +36,32 @@ abstract class Pintar{
 	
 	
 	function tablero( $tablero, $jugador ){
+		$letras = [" ","A","B","C","D","E","F","G","H"];
+		
+		
 		$retorno = "<table>";
+		
+
+		
 		for($i=0; $i < 8; $i++){ //columnas 
 			$retorno .= "<tr>";
-			for ($j=0; $j<=7;$j++) { //filas	
+			
+			$retorno .= "<td>".($i+1)."</td>";
+			
+			for ($j=0; $j<=7;$j++) { //filas
+				
 				$retorno .= "<td title='[X=".$i.", Y=".$j."]' col='".$j."' fil='".$i."' class='".( (($i+$j)%2)==0?'par':'none')." ".
 				(Pintar::puedeMover($tablero[$i][$j], $jugador ))." '>".Pintar::pieza($tablero[$i][$j])."</td>";
 			}
 			$retorno .= "</tr>";
 		}
+		
+		$retorno .= "<tr>";
+		for($i=0; $i <= 8; $i++){
+			$retorno .= "<td>".($letras[$i])."</td>";
+		}
+		$retorno .= "</tr>";
+		
 		$retorno = $retorno."</table>";
 		
 		return $retorno;

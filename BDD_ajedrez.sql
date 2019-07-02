@@ -1,10 +1,10 @@
 create database ajedrez;
+
 create table jugador(
 	idJugador int not null identity
 	,color varchar (15)
-,CONSTRAINT PK_jugador PRIMARY KEY(idJugador)
+	,CONSTRAINT PK_jugador PRIMARY KEY(idJugador)
 )
-
 
 create table Partida(
 	  idPartida int not null identity
@@ -12,8 +12,8 @@ create table Partida(
 	 ,codigoJugada varchar(45)
 ,CONSTRAINT PK_Partida PRIMARY KEY(idPartida)	 
 ,CONSTRAINT FK_Partida_Jugador FOREIGN KEY (idJugador) REFERENCES jugador(idJugador)
-
 )
+
 create table piezas(
 	 idPieza int not null identity	
 	,idPartida int
@@ -22,6 +22,7 @@ create table piezas(
 ,CONSTRAINT PK_piezas PRIMARY KEY(idPieza)	 
 ,CONSTRAINT FK_Piezas_Partida FOREIGN KEY (idPartida) REFERENCES Partida(idPartida)	
 )
+
 create table movimientos(
 	idMovimiento int not null identity
 	,idjugador int
@@ -33,6 +34,8 @@ create table movimientos(
 ,CONSTRAINT FK_movimientos_Partida FOREIGN KEY (idPartida) REFERENCES Partida(idPartida)
 ,CONSTRAINT FK_movimientos_piezas FOREIGN KEY (idPieza) REFERENCES piezas(idPieza)	
 )
+
+
 ---------------------mysql--------------------------------------------------------
 
 create table jugador( 
@@ -60,6 +63,7 @@ create table piezas(
 ,CONSTRAINT PK_piezas PRIMARY KEY(idPieza)	 
 ,CONSTRAINT FK_Piezas_Partida FOREIGN KEY (idPartida) REFERENCES Partida(idPartida)	
 )
+
 create table movimientos(
 	idMovimiento int not null AUTO_INCREMENT 
 	,idjugador int
@@ -73,4 +77,9 @@ create table movimientos(
 )
 
 
+
+
+
+insert into jugador VALUES (1, 'NEGRO');
+insert into jugador VALUES (2, 'BLANCO');
 

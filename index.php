@@ -30,44 +30,43 @@ $_SESSION['JUGADOR']	= $miJuego->jugador;
 	
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid">
 	
-      <div class="header clearfix">
-        
-		
+      <div class="header clearfix">		
         <h3 class="text-muted">Ajedrez</h3>
       </div>
 
-		<div class="jumbotron">
-			<div class="row">
-				<div class="col-lg-2"></div>
-				<div class="col-lg-8">
-					<div id="tabla">
+	  
+	  
+		<div class="row">
+			<div class="col-lg-3 jumbotron">
 <?php
-			
-echo Pintar::tablero($miJuego->tablero, $miJuego->jugador);
-
+	include('res/jugador.php');
 ?>
 
-
-
-	  
-	  
-	  
-	  
-					</div>
+			</div>
+			
+			<div class="col-lg-1"></div>
+			
+			<div class="col-lg-4 jumbotron">
+				<div id="tabla">
+<?php		
+echo Pintar::tablero($miJuego->tablero, $miJuego->jugador);
+?>
 				</div>
-				<div class="col-lg-2"></div>
+			</div>
+			
+			<div class="col-lg-1"></div>
+			<div class="col-lg-3 jumbotron">
+<?php
+	include('res/jugador.php');
+?>
 			</div>
 		</div>
 
-		
-	
-	  
 <?php
 	include('res/pieDePagina.php');
 ?>
 	</div>
 </body>
-
 </html>
