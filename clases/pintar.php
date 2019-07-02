@@ -111,12 +111,7 @@ $(function() {
 		}elseif($colNueva == ($col + 1) && $filaNueva == $fila + 1  ){
 			$validado=true;			
 		}
-		/*
-		if(){
-			//validar que com cuando pieza se contraria 
-			
-		}
-	*/
+		
 		
 		return $validado;
 		

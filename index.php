@@ -33,13 +33,7 @@ $_SESSION['JUGADOR']	= $miJuego->jugador;
     <div class="container">
 	
       <div class="header clearfix">
-        <!-- nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
-            <li role="presentation"><a href="#">About</a></li>
-            <li role="presentation"><a href="#">Contact</a></li>
-          </ul>
-        </nav -->
+        
 		
         <h3 class="text-muted">Ajedrez</h3>
       </div>
@@ -68,34 +62,7 @@ echo Pintar::tablero($miJuego->tablero, $miJuego->jugador);
 		</div>
 
 		
-	 <!-- LOG DE JUGADAS--->
-	 
-		
-		
-      <!-- div class="row marketing">
-        <div class="col-lg-6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-
-        <div class="col-lg-6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-      </div -->	  
-	  <!-- Button trigger modal -->
+	
 	  
 <?php
 	include('res/pieDePagina.php');

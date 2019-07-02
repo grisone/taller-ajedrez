@@ -16,20 +16,10 @@ class Juego {
 	}
 	
 	private function juegoInicial(){
-	return array (
-				array( 0, 0, 0, 4, 0, 0, 0, 0),
-				array( -6, 0, 0, 0, 0, 0, 0, -6),
-				
-				array( 0, 0, 0, 0, 0, 0, 0, 0),
-				array( 0, 0, 0, 0, 0, 0, 0, 0),
-				array( 0, 0, 0, 0, 0, 0, 0, 0),
-				array( 0, 0, 0, 0, 0, 0, 0, 0),
-				
-				array(6,0, 0, 0, 0, 0, 0,6),
-				array(0, 0, 0,-4,0, 0, 0,0)
-			) 
+		
+		
+
 	
-	/*
 			return array (
 				array( 1, 2, 3, 4, 5, 3, 2, 1),
 				array( 6, 6, 6, 6, 6, 6, 6, 6),
@@ -42,7 +32,7 @@ class Juego {
 				array(-6,-6,-6,-6,-6,-6,-6,-6),
 				array(-1,-2,-3,-4,-5,-3,-2,-1)
 			)
-			*/
+			
 			
 			;
 		
@@ -181,13 +171,7 @@ class Juego {
 		} else {
 			
 			// VALIDAR BLANCAS
-/*
-			if($col == $colNueva && $fila == 1 && $filaNueva == $fila + 2){
-				$validado=true;
-			}elseif( $col == $colNueva && $filaNueva == $fila + 1 ){
-				$validado=true;	
-			}
-*/
+
 			if( $col == $colNueva ){
 				if(  $fila == 1 && $filaNueva == $fila + 2 ){
 					if( $this->tablero[$filaNueva  ][$colNueva] == PIEZA::VACIA &&
@@ -268,65 +252,7 @@ class Juego {
 		
 		
 	}
-	/*
-		function validarReina($fila, $col, $filaNueva, $colNueva){
-				
-		
-		$validado = false;
-		$pieza = $this->tablero[$fila][$col];
 
-        $distanciaColumna	= abs($col-$colNueva);
-		$distanciaFilas		= abs($fila-$filaNueva);
-		
-		if( $distanciaColumna == $distanciaFilas ){
-							
-			
-			return true;
-		
-		}
-
-		if( ($fila==$filaNueva) || ($col==$colNueva) ){
-			
-			if($fila==$filaNueva){
-				
-				$this->logger( "DISTANCIA=".abs($col-$colNueva) );
-				
-				$distancia = abs($col-$colNueva);
-				
-				$calculo = ($col  > $colNueva ? $colNueva : $col );
-				
-				$puedoCaminar = true;
-				for($x=1; $x < ($distancia);$x++ ){
-					//$this->tablero[$fila][$col+()]
-					
-					$this->logger( "EVALUAR=[$fila, ".($calculo+$x)."]" );
-					
-					// IF esta ocupado $puedoCaminar=false
-				}
-				
-				if($puedoCaminar){
-					// if la filaNueva, columnaNueva es una pieza distinta o cero = TRUE
-				}
-				
-				
-				$this->logger("FILA=$fila, COLUMNA= $col, FILA=$filaNueva, COLUMNA= $colNueva");
-				
-				return true;
-			}else{ //$col==$colNueva
-				$this->logger( "DISTANCIA=".abs($fila-$filaNueva) );
-				$this->logger( "FILA=$fila, COLUMNA= $col, FILA=$filaNueva, COLUMNA= $colNueva" );
-				return true;			
-			}
-		}
-			
-
-			
-		return $validado;
-
-		
-		}
-		
-		*/
 		
 				
 	function validarRey($fila, $col, $filaNueva, $colNueva){
@@ -343,7 +269,7 @@ class Juego {
 			$validado=true;
 		}
 		
-		/* Falta movimiento paralelas y verticales */
+		
 		
 		elseif($colNueva == ($col + 1) && $filaNueva == $fila   ){
 			$validado=true;
@@ -363,8 +289,12 @@ class Juego {
 	private function logger($texto){
 		if(!$this->DEBUG) return;
 		
+		/*
 		echo "<p><sub style='color:green'>$texto</sub></p>";
+		*/
 	}
+	
+
 }
 
 
